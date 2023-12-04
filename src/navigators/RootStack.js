@@ -20,7 +20,6 @@ const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
     return(
-        <CarritoProvider>
         <FirebaseProvider>
             <NavigationContainer>
                 <Stack.Navigator
@@ -50,7 +49,6 @@ const RootStack = () => {
                 </Stack.Navigator>
             </NavigationContainer>
         </FirebaseProvider>
-        </CarritoProvider>
     )
 }
 

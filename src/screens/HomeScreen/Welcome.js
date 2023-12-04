@@ -53,11 +53,6 @@ const Welcome = () => {
     fetchProducts();
   }, []);
 
-  function getRandomDefaultImage() {
-    const randomIndex = Math.floor(Math.random() * defaultImages.length);
-    return defaultImages[randomIndex];
-  }
-
   return (
     <KeyboardAvoidingWrapper>
     <StyledContainer>
@@ -81,10 +76,10 @@ const Welcome = () => {
           </SearchButton>
         </SearchContainer>
         <CardContainerWrapper>
-        {products.map((product, index) => (
+        {products.map((product) => (
           
           <CardContainer 
-            key={index}
+            key={product.id}
             onPress={() => navigation.navigate('DetalleProducto', { product: product })}
           >
             <CardImage

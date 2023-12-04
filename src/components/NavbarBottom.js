@@ -19,7 +19,6 @@ const NavbarBottom = () => {
   const email = user.email;
 
   return (
-    <CarritoProvider>
     <Tab.Navigator
       screenOptions={{
         headerStyle: {
@@ -79,7 +78,6 @@ const NavbarBottom = () => {
         />
       )}
     </Tab.Navigator>
-    </CarritoProvider>
   );
 };
 

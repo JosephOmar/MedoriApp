@@ -8,6 +8,7 @@ import { db, storage } from "../../../firebaseConfig";
 import { InnerContainer, StyledContainer } from "../../components/styles";
 import { StyledButton, ButtonText } from "../../components/styles";
 import { useNavigation } from "@react-navigation/native";
+import uuid from 'react-native-uuid';
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,7 @@ const AddProduct = () => {
   const [progress, setProgress] = useState(0);
   const [files, setFiles] = useState([]);
   const navigation = useNavigation();
+  const [id, setId] = useState("");
 
   useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -40,6 +42,7 @@ const AddProduct = () => {
       aspect: [3, 4],
       quality: 1,
     });
+    setId(uuid.v4());
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
@@ -79,6 +82,7 @@ const AddProduct = () => {
           setImage("");
           setName("");
           setPrice("");
+          setId("");
         });
       }
     );
@@ -92,6 +96,7 @@ const AddProduct = () => {
         createdAt,
         name,
         price,
+        id
       });
     } catch (e) {
       console.error("Error saving document: ", e);

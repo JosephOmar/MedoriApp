@@ -4,9 +4,9 @@ import { CarritoProvider } from './CarritoContext';
 
 const MainScreen = () => {
   return (   
-      <CarritoProvider>
+
       <NavbarBottom />
-      </CarritoProvider>
+
   );
 };
 
