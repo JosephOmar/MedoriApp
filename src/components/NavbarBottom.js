@@ -7,11 +7,19 @@ import PaymentMethods from '../screens/HomeScreen/PaymentMethods';
 import PerfilScreen from '../screens/HomeScreen/PerfilScreen';
 import ShoppingCart from '../screens/HomeScreen/ShoppingCart';
 import Welcome from '../screens/HomeScreen/Welcome';
+import { auth } from '../../firebase';
+import { CarritoProvider } from '../screens/HomeScreen/CarritoContext';
 
 const Tab = createBottomTabNavigator();
 
-const NavbarBottom = ({ user }) => {
+const NavbarBottom = () => {
+
+  const user = auth.currentUser;
+
+  const email = user.email;
+
   return (
+    <CarritoProvider>
     <Tab.Navigator
       screenOptions={{
         headerStyle: {
@@ -59,7 +67,7 @@ const NavbarBottom = ({ user }) => {
           ),
         }}
       />
-      {user && user.email === 'admin@gmail.com' && (
+      {email === 'admin@gmail.com' && (
         <Tab.Screen
           name="AddProduct"
           component={AddProduct}
@@ -71,6 +79,7 @@ const NavbarBottom = ({ user }) => {
         />
       )}
     </Tab.Navigator>
+    </CarritoProvider>
   );
 };
 

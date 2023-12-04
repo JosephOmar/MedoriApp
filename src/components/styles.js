@@ -12,15 +12,15 @@ export const Colors = {
     brand: "#6D28D9",
     green: "#10B981",
     red: "#EF4444",
+    primaryOpacity: "rgba(255,255,255,.2)"
 };
 
-const {primary, secondary, tertiary, darkLight,brand, green, red } = Colors;
+const {primary, secondary, tertiary, darkLight,brand, green, red, primaryOpacity} = Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
     padding: 25px;
     padding-top: ${StatusBarHeight + 30}px;
-    background-color: ${primary};
 `;
 export const InnerContainer = styled.View`
     flex: 1;
