@@ -11,7 +11,7 @@ const ShoppingCart = () => {
   const calcularPrecioTotal = () => {
     let total = 0;
     productos.forEach((producto) => {
-      total += producto.price * producto.cantidad;
+      total += parseFloat(producto.price) 
     });
     return total;
   };
@@ -26,6 +26,7 @@ const ShoppingCart = () => {
             {productos.map((producto, index) => (
               <View key={`${producto.id}-${index}`}> 
                 <Text>{producto.name}</Text>
+                <Text>{producto.price}</Text>
                 <Text>Cantidad: {producto.cantidad}</Text>
                 <TouchableOpacity title="Eliminar" onPress={() => eliminarProducto(producto.id)} >
                     <Text>Eliminar</Text>
