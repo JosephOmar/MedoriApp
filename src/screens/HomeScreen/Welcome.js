@@ -79,11 +79,6 @@ const Welcome = () => {
         </Navbar>
         <SearchContainer>
           <SearchInput placeholder="Buscar Productos ..." value={searchValue} onChange={handleSearch}/>
-          <SearchButton>
-            <SearchIcon>
-              <Octicons name="search" size={20} color="#fff" />
-            </SearchIcon>
-          </SearchButton>
         </SearchContainer>
         <CardContainerWrapper>
           {filteredProducts.length > 0 ? ( 

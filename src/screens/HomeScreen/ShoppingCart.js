@@ -66,7 +66,7 @@ const ShoppingCart = () => {
                   </ShoppingContainerButton>
                 </ShoppingContainer>
               ))}
-            <ShoppingPriceTotal>Precio total: {calcularPrecioTotal()}</ShoppingPriceTotal>
+            <ShoppingPriceTotal>Precio total: PEN {calcularPrecioTotal()}.00</ShoppingPriceTotal>
             </View>
         </InnerContainer>
         </StyledContainer>

@@ -29,7 +29,8 @@ export const ShoppingContainerProduct = styled.View`
     padding: 10px 20px;
     border: 2px solid ${border}; 
     gap: 5px;
-    background-color: rgba(109, 40, 217,.6)
+    background-color: rgba(109, 40, 217,.6);
+    overflow: hidden;
 `;
 export const ShoppingContainerText = styled.View`
     gap: 10px;
@@ -40,7 +41,7 @@ export const ShoppingImagen = styled.Image`
 `;
 export const ShoppingName = styled.Text`
     font-size: 16px;
-    color: ${primary}
+    color: ${primary};
 `;
 export const ShoppingPrice = styled.Text`
     font-size: 16px;
