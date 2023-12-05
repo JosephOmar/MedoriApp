@@ -4,6 +4,7 @@ import { defaultImages } from '../../components/stylesCard';
 import KeyboardAvoidingWrapper from '../../components/KeyboardAvoidingWrapper';
 import { useCarrito } from './CarritoContext';
 import { useNavigation } from '@react-navigation/native';
+import { ProductContainer, ProductTitle, ProductPrice, ProductButton, ProductButtonText, ProductTextContainer } from '../../components/stylesProduct';
 
 const DetailProductScreen = ({ route }) => {
   const { product } = route.params;
@@ -30,12 +31,15 @@ const DetailProductScreen = ({ route }) => {
           onError={(e) => console.log("Error loading image:", e.nativeEvent.error)}
           style={{height:600, width:'100%'}}
         />
-        {/* Aquí puedes mostrar más detalles del producto */}
-        <Text>{product.name}</Text>
-        <Text>{product.price}</Text>
-        <TouchableOpacity onPress={() => agregarProductoAlCarrito(product)}>
-        <Text>Agregar al carrito</Text>
-        </TouchableOpacity>
+        <ProductContainer>
+          <ProductButton onPress={() => agregarProductoAlCarrito(product)}>
+          <ProductButtonText>Añadir</ProductButtonText>
+          </ProductButton>
+          <ProductTextContainer>
+            <ProductTitle>{product.name}</ProductTitle>
+            <ProductPrice>PEN {product.price}</ProductPrice>
+          </ProductTextContainer>
+        </ProductContainer>
       </View>
     </KeyboardAvoidingWrapper>
   );

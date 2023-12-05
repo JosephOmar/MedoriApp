@@ -3,6 +3,7 @@ import { Text, View} from "react-native"
 import { StyledContainer,
     InnerContainer
 } from '../../components/styles'
+import { PageTitle } from '../../components/styles'
 
 const PaymentMethods = () => {
 
@@ -11,7 +12,7 @@ const PaymentMethods = () => {
     return(
         <StyledContainer>
             <InnerContainer>
-                <Text>Payment</Text>
+                <PageTitle>Payment</PageTitle>
             </InnerContainer>
         </StyledContainer>
     )

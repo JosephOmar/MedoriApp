@@ -43,11 +43,12 @@ export const CardImage = styled.Image`
 `;
 export const CardName = styled.Text`
     position: absolute;
-    left: 12px;
-    top: 20px;
+    left: 5px;
+    top: 10px;
     color: ${black};
     font-weight: bold;
     font-size: 12px;
+    background-color: rgba(255,255,255,.5);
 `;
 export const CardPriceContainer = styled.View`
     position: absolute;
@@ -57,63 +58,16 @@ export const CardPriceContainer = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 100%; 
 `;
 export const CardPriceText = styled.Text`
     color: ${black};
     font-weight: bold;
     font-size: 16px;
+    background-color: rgba(255,255,255,.5);
 `;
 export const CardPriceIcon = styled.View`
     justifify-content: center;
     align-items: center;
+    background-color: rgba(255,255,255,.5);
 `
-export const defaultImages = [
-    require('../assets/imgProducts/AbrigoLargoConLino.jpg'),
-    require('../assets/imgProducts/AbrigoPuntoMacrame.jpg'),
-    require('../assets/imgProducts/AbrigoPuntoMacrameNegro.jpg'),
-    require('../assets/imgProducts/BataCapuchaSeda.jpg'),
-    require('../assets/imgProducts/AbrigoOversizeBrillo.jpg'),
-    require('../assets/imgProducts/AbrigoRectoConLana.jpg'),
-    require('../assets/imgProducts/AbrigoBorreguillo.jpg'),
-    require('../assets/imgProducts/AbrigoConLana.jpg'),
-    require('../assets/imgProducts/AbrigoAcolchadoCapucha.jpg'),
-    require('../assets/imgProducts/AbrigoLanaCinturon.jpg'),
-    require('../assets/imgProducts/Braguita100Lana.jpg'),
-    require('../assets/imgProducts/CamisetaPointelleMangaLarga.jpg'),
-    require('../assets/imgProducts/Chaqueta100Lana.jpg'),
-    require('../assets/imgProducts/VestidoLargoCutOutZWCollection.jpg'),
-    require('../assets/imgProducts/VestidoLentejuelas.jpg'),
-    require('../assets/imgProducts/VestidoAsimetricoSatinado.jpg'),
-    require('../assets/imgProducts/CamisaRayas.jpg'),
-    require('../assets/imgProducts/CamisaTwillBolsillo.jpg'),
-    require('../assets/imgProducts/CamisaEstructuraTwill.jpg'),
-    require('../assets/imgProducts/CamisaEstampadoOndas.jpg'),
-    require('../assets/imgProducts/CamisaTroqueladoBordado.jpg'),
-    require('../assets/imgProducts/CamisetaCanaleCutOut.jpg'),
-    require('../assets/imgProducts/CamisetaRotos.jpg'),
-    require('../assets/imgProducts/CamisetaEstampadoDifuminado.jpg'),
-    require('../assets/imgProducts/CamisetaAcabadoDoble.jpg'),
-    require('../assets/imgProducts/ZapatoVestir.jpg'),
-    require('../assets/imgProducts/SandaliaDobleTira.jpg'),
-    require('../assets/imgProducts/ZapatillaDeportivaBandeleta.jpg'),
-    require('../assets/imgProducts/BambaMultipiezas.jpg'),
-    require('../assets/imgProducts/BlazerCruzadaTraje.jpg'),
-    require('../assets/imgProducts/BlazerTrajeCosturas.jpg'),
-    require('../assets/imgProducts/BlazerTrajeAlgodon.jpg'),
-    require('../assets/imgProducts/SudaderaLisa.jpg'),
-    require('../assets/imgProducts/CazadoraFelpaCremallera.jpg'),
-    require('../assets/imgProducts/SudaderaCorazónTroquelado.jpg'),
-    require('../assets/imgProducts/BermudaDenimMarine.jpg'),
-    require('../assets/imgProducts/ChalecoTrajeMezclaLanaMelange.jpg'),
-    require('../assets/imgProducts/VestidoEstampadoFlores.jpg'),
-    require('../assets/imgProducts/VestidoRibRayas.jpg'),
-    require('../assets/imgProducts/VestidoPuntoDesagujado.jpg'),
-    require('../assets/imgProducts/BomberAcolchadaMultibolsillos.jpg'),
-    require('../assets/imgProducts/BlazerTejidoConfort.jpg'),
-    require('../assets/imgProducts/BomberEfectoPiel.jpg'),
-    require('../assets/imgProducts/BomberAlgodon.jpg'),
-    require('../assets/imgProducts/CazadoraLigera.jpg'),
-    require('../assets/imgProducts/ChalecoDenimBolsillos.jpg'),
-    require('../assets/imgProducts/BomberOversize.jpg'),
-    require('../assets/imgProducts/BomberAcolchadaOversize.jpg'),
-  ];

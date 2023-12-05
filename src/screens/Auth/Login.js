@@ -32,10 +32,6 @@
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
         const navigation = useNavigation();
-        
-        useLayoutEffect(() => {
-            navigation.setOptions({ headerShown: false });
-        },[]);
 
         useEffect(() => {
             setEmail('');
@@ -78,7 +74,6 @@
                             placeholderTextColor={darkLight}
                             onChangeText={text => setEmail(text)}
                             value={email}
-                            keyboradType="email-address"
                         />
                         <MyTextInput 
                             label="Password"

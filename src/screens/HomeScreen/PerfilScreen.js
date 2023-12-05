@@ -4,12 +4,27 @@ import { InnerContainer, StyledContainer } from '../../components/styles';
 import KeyboardAvoidingWrapper from '../../components/KeyboardAvoidingWrapper';
 import { useFirebase } from '../Auth/FirebaseContext';
 import { useNavigation } from '@react-navigation/native';
+import { PageTitle } from '../../components/styles';
+import { 
+  StyledTextInput,
+  StyledInputLabel,
+  StyledButton,
+  ButtonText,
+  RightIcon,
+  LefIcon,
+  Colors
+ } from '../../components/styles';
+
+ const {brand,darkLight, primary} = Colors;
+ import {Octicons, Ionicons, Fontisto} from '@expo/vector-icons';
+
 
 const ShoppingCart = () => {
     const { user } = useFirebase();
     const [name, setName] = useState(user.displayName);
     const [email, setEmail] = useState(user.email);
     const [newPassword, setNewPassword] = useState('');
+    const [hidePassword, setHidePassword] = useState(true);
   
     const handleSave = () => {
       // Guardar los cambios en el perfil del usuario
@@ -38,30 +53,62 @@ const ShoppingCart = () => {
     <KeyboardAvoidingWrapper>
         <StyledContainer>
         <InnerContainer>
-        <Text>TUS DATOS DE USUARIO</Text>
+        <PageTitle>Tus Datos De Usuario</PageTitle>
         <View>
-            <Text>Nombre:</Text>
-            <TextInput
-                value={name}
-                onChangeText={setName}
+            <MyTextInput 
+              label="Name"
+              icon="person"
+              placeholder="Name"
+              placeholderTextColor={darkLight}
+              onChangeText={setName}
+              value={name}
             />
-            <Text>Email:</Text>
-            <TextInput
-                value={email}
-                onChangeText={setEmail}
+            <MyTextInput 
+              label="Emai"
+              icon="mail"
+              placeholder="Email"
+              placeholderTextColor={darkLight}
+              onChangeText={setEmail}
+              value={email}
+              keyboradType="email-address"
             />
-            <Text>Nueva contraseña:</Text>
-            <TextInput
-                value={newPassword}
-                onChangeText={setNewPassword}
-                secureTextEntry={true}
+            <MyTextInput 
+              label="Password"
+              icon="lock"
+              placeholder="*********"
+              placeholderTextColor={darkLight}
+              onChangeText={setNewPassword}
+              value={newPassword}
+              secureTextEntry = {hidePassword}
+              isPassword={true}
+              hidePassword={hidePassword}
+              setHidePassword={setHidePassword}
             />
-            <Button title="Guardar" onPress={handleSave} />
+            <StyledButton onPress={handleSave}> 
+              <ButtonText>Actualizar</ButtonText>
+            </StyledButton>
         </View>
         </InnerContainer>
         </StyledContainer>
     </KeyboardAvoidingWrapper>
   );
 };
+
+const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ...props}) => {
+  return (
+      <View>
+          <LefIcon>
+              <Octicons name={icon} size={30} color={brand}/>
+          </LefIcon>
+          <StyledInputLabel>{label}</StyledInputLabel>
+          <StyledTextInput {...props}/>
+          {isPassword && (
+              <RightIcon onPress={() => setHidePassword(!hidePassword)}>
+                  <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight}/>
+              </RightIcon>
+          )}
+      </View>
+  )
+}
 
 export default ShoppingCart;

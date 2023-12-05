@@ -9,6 +9,7 @@ import { InnerContainer, StyledContainer } from "../../components/styles";
 import { StyledButton, ButtonText } from "../../components/styles";
 import { useNavigation } from "@react-navigation/native";
 import uuid from 'react-native-uuid';
+import { PageTitle } from "../../components/styles";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -108,23 +109,35 @@ const AddProduct = () => {
       source={require('./../../assets/img/bgAddProduct.jpg')}
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
-    <StyledContainer
-
+    <ImageBackground
+        source={require('./../../assets/img/Logo.png')}
+        style={{
+          flex: 1,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,  // Ajusta este valor para controlar la superposición
+        }}
+        resizeMode="contain"
     >
+    <StyledContainer>
       <InnerContainer>
-        <View style={{ flex: 1 }}>
+      <PageTitle>Agregar Producto</PageTitle>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <TextInput
             placeholder="Product Name"
             value={name}
             onChangeText={(text) => setName(text)}
-            style={{ margin: 10, padding: 10, borderWidth: 2, backgroundColor: "#FFF", }}
+            style={{ margin: 10, padding: 10,width:250, borderWidth: 2, backgroundColor: "#FFF", }}
           />
           <TextInput
             placeholder="Product Price"
             value={price}
             onChangeText={(text) => setPrice(text)}
             keyboardType="numeric"
-            style={{ margin: 10, padding: 10, borderWidth: 2, backgroundColor: "#FFF", }}
+            style={{ margin: 10, padding: 10,width:250, borderWidth: 2, backgroundColor: "#FFF", }}
           />
           {image ? (
             <Image
@@ -162,6 +175,7 @@ const AddProduct = () => {
         </View>
       </InnerContainer>
     </StyledContainer>
+    </ImageBackground>
     </ImageBackground>
   );
 };
