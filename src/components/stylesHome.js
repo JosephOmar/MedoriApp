@@ -73,4 +73,15 @@ export const SearchIcon = styled.View`
     justifify-content: center;
     align-items: center;
 `;
-
+export const ButtonGender = styled.TouchableOpacity`
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+`;
+export const ButtonGenderText = styled.Text`
+    font-size: 12px;
+    font-weight: bold;
+`;

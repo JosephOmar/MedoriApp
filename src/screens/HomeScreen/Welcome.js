@@ -1,5 +1,5 @@
 import {React, useLayoutEffect, useState, useEffect} from 'react'
-import { Text } from 'react-native'
+import { Text, View} from 'react-native'
 import { StyledContainer, InnerContainer} from '../../components/styles'
 import { 
   Navbar, 
@@ -12,6 +12,8 @@ import {
   SearchInput,
   SearchText,
   SearchIcon,
+  ButtonGender,
+  ButtonGenderText
 } from '../../components/stylesHome'
 import { 
   CardContainer,
@@ -29,6 +31,7 @@ import { db } from "../../../firebaseConfig";
 import { getDocs, collection } from '@firebase/firestore'
 import KeyboardAvoidingWrapper from '../../components/KeyboardAvoidingWrapper'
 import { defaultImages } from '../../components/stylesCard'
+import { RadioButton } from 'react-native-paper'; 
 
 
 const Welcome = () => {
@@ -39,7 +42,11 @@ const Welcome = () => {
   const navigation = useNavigation();
   const [filteredProducts, setFilteredProducts] = useState([]); 
   const [searchValue, setSearchValue] = useState('');
-
+  const [selectedGender, setSelectedGender] = useState('male');
+  const handleGenderChange = (gender) => {
+  setSelectedGender(gender);
+  };
+  //TOMA LOS PRODUCTOS DE LA FIREBASE
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -53,7 +60,7 @@ const Welcome = () => {
 
     fetchProducts();
   }, []);
-
+  //FILTRO SEARCH
   const handleSearch = (e) => {
     const value = e.nativeEvent.text;
     setSearchValue(value);
@@ -62,6 +69,14 @@ const Welcome = () => {
     );
     setFilteredProducts(filtered);
   };
+  //FILTRO GENDER
+  useEffect(() => {
+    const filtered = products.filter(product =>
+      product.gender.toLowerCase() === selectedGender.toLowerCase()
+    );
+    setFilteredProducts(filtered);
+  }, [products, selectedGender]);
+
 
   return (
     <KeyboardAvoidingWrapper>
@@ -80,6 +95,36 @@ const Welcome = () => {
         <SearchContainer>
           <SearchInput placeholder="Buscar Productos ..." value={searchValue} onChange={handleSearch}/>
         </SearchContainer>
+        <View style={{flexDirection:'row',gap:10}}>
+        <ButtonGender
+        title="Hombre"
+        value="Hombre"
+        selected={selectedGender === 'Hombre'}
+        onPress={() => handleGenderChange('Hombre')}>
+          <ButtonGenderText>Hombre</ButtonGenderText>
+        </ButtonGender>
+        <ButtonGender
+        title="Mujer"
+        value="Mujer"
+        selected={selectedGender === 'Mujer'}
+        onPress={() => handleGenderChange('Mujer')}>
+          <ButtonGenderText>Mujer</ButtonGenderText>
+        </ButtonGender>
+        <ButtonGender
+        title="Niño"
+        value="Niño"
+        selected={selectedGender === 'Niño'}
+        onPress={() => handleGenderChange('Niño')}>
+          <ButtonGenderText>Niño</ButtonGenderText>
+        </ButtonGender>
+        <ButtonGender
+        title="Niña"
+        value="Niña"
+        selected={selectedGender === 'Niña'}
+        onPress={() => handleGenderChange('Niña')}>
+          <ButtonGenderText>Niña</ButtonGenderText>
+        </ButtonGender>
+        </View>
         <CardContainerWrapper>
           {filteredProducts.length > 0 ? ( 
                 filteredProducts.map((product) => (
